@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7c45mos7xgd6"]
+
+[ext_resource type="PackedScene" uid="uid://b47tcpdjg2sll" path="res://test_map.tscn" id="2_u44n3"]
+[ext_resource type="PackedScene" uid="uid://ufl1nsshlx8q" path="res://Player.tscn" id="2_xkndl"]
+
+[sub_resource type="GDScript" id="GDScript_wbfu4"]
+script/source = "extends Node
+
+#var player = preload(\"res://player.tscn\")
+
+#func _ready():
+#	var childScene = player.instantiate()
+#	add_child(childScene)
+"
+
+[node name="Game" type="Node"]
+script = SubResource("GDScript_wbfu4")
+
+[node name="TestMap" parent="." instance=ExtResource("2_u44n3")]
+
+[node name="Player" parent="." instance=ExtResource("2_xkndl")]
+position = Vector2(560, 320)
